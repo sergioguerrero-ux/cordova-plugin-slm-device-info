@@ -1,0 +1,49 @@
+{
+    "name": "cordova-plugin-slm-device-info",
+    "version": "1.0.0",
+    "description": "Cordova plugin for comprehensive device information, battery status, and network info on iOS and Android",
+    "main": "www/SLMDeviceInfo.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sergioguerrero-ux/cordova-plugin-slm-device-info.git"
+    },
+    "keywords": [
+        "cordova",
+        "plugin",
+        "device",
+        "info",
+        "uuid",
+        "battery",
+        "network",
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios"
+    ],
+    "engines": {
+        "cordovaDependencies": {
+            ">=8.0.0": {
+                "cordova-android": ">=9.0.0",
+                "cordova-ios": ">=6.0.0"
+            }
+        }
+    },
+    "author": "Sergio Guerrero",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sergioguerrero-ux/cordova-plugin-slm-device-info/issues"
+    },
+    "homepage": "https://github.com/sergioguerrero-ux/cordova-plugin-slm-device-info#readme",
+    "cordova": {
+        "id": "cordova-plugin-slm-device-info",
+        "platforms": [
+            "android",
+            "ios"
+        ]
+    },
+    "peerDependencies": {
+        "cordova": ">=8.0.0"
+    }
+}

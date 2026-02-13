@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-slm-device-info"
+    version="1.0.0">
+
+    <name>SLM Device Info</name>
+    <description>Plugin para obtener información completa del dispositivo, batería y red en iOS y Android</description>
+    <license>MIT</license>
+    <keywords>cordova,plugin,device,info,uuid,battery,network,slm</keywords>
+    <repo>https://github.com/sergioguerrero-ux/cordova-plugin-slm-device-info.git</repo>
+    <issue>https://github.com/sergioguerrero-ux/cordova-plugin-slm-device-info/issues</issue>
+
+    <js-module src="www/SLMDeviceInfo.js" name="SLMDeviceInfo">
+        <clobbers target="SLMDeviceInfo" />
+    </js-module>
+
+    <!-- ==================== iOS ==================== -->
+    <platform name="ios">
+        <preference name="SWIFTVERSION" default="5.0" />
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="SLMDeviceInfo">
+                <param name="ios-package" value="SLMDeviceInfo" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/ios/SLMDeviceInfo.swift" />
+
+        <framework src="UIKit.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="SystemConfiguration.framework" />
+    </platform>
+
+    <!-- ==================== Android ==================== -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SLMDeviceInfo">
+                <param name="android-package" value="com.slm.deviceinfo.SLMDeviceInfo" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="src/android/SLMDeviceInfo.java"
+                     target-dir="src/com/slm/deviceinfo" />
+    </platform>
+
+</plugin>
