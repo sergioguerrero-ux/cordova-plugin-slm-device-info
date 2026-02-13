@@ -129,11 +129,18 @@ import SystemConfiguration
 
     private func getCarrierName() -> String {
         let networkInfo = CTTelephonyNetworkInfo()
-        if let carriers = networkInfo.serviceSubscriberCellularProviders {
-            for (_, carrier) in carriers {
-                if let name = carrier.carrierName {
-                    return name
+        if #available(iOS 12.0, *) {
+            if let carriers = networkInfo.serviceSubscriberCellularProviders {
+                for (_, carrier) in carriers {
+                    if let name = carrier.carrierName {
+                        return name
+                    }
                 }
+            }
+        } else {
+            if let carrier = networkInfo.subscriberCellularProvider,
+               let name = carrier.carrierName {
+                return name
             }
         }
         return "unknown"
